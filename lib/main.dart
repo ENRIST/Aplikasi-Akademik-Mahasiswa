@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
-
-import "pages/login.dart";
+import "routes.dart";
 
 void main() {
   runApp(const MyApp());
@@ -11,6 +10,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: const LoginPage());
+    return MaterialApp(
+      title: 'Aplikasi Mahasiswa',
+      initialRoute: AppRoutes.login,
+      routes: AppRoutes.routes,
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: const Color(0xFFF5F7FA),
+        fontFamily: 'Roboto',
+      ),
+    );
   }
 }

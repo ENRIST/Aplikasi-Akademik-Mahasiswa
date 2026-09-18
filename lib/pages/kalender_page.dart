@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
+
 class KalenderPage extends StatelessWidget {
   const KalenderPage({super.key});
 
-  static const Color _primaryBlue = Color(0xFF2196F3);
+  static const Color _primaryBlue = Color(0xFF4285F4);
   static const Color _iconBg = Color(0xFFE8EEFC);
   static const Color _bgPage = Color(0xFFF1F3F9);
   static const Color _green = Color(0xFF22C55E);
@@ -25,35 +26,30 @@ class KalenderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: _bgPage,
-      appBar: AppBar(
-        backgroundColor: _primaryBlue,
-        elevation: 0,
-        automaticallyImplyLeading: false,
-        title: const Text(
-          'Kalender Akademik',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.w400,
-            fontSize: 18,
-          ),
-        ),
-      ),
       body: SafeArea(
         top: false,
         bottom: false,
-        child: ListView.separated(
-          padding: const EdgeInsets.fromLTRB(16, 18, 16, 24),
-          itemCount: _data.length,
-          separatorBuilder: (_, _) => const SizedBox(height: 14),
-          itemBuilder: (context, i) {
-            final d = _data[i];
-            final pdfPath = d['pdf'];
+        child: Column(
+          children: [
+            _buildHeader(),
+            Expanded(
+              child: ListView.separated(
+                padding: const EdgeInsets.fromLTRB(16, 18, 16, 24),
+                itemCount: _data.length,
+                separatorBuilder: (_, __) => const SizedBox(height: 14),
+                itemBuilder: (context, i) {
+                  final d = _data[i];
+                  final pdfPath = d['pdf'];
 
-            return _KalenderCard(
-              tahun: d['tahun']!,
-              onTapPdf: () => _handlePdfTap(context, d['tahun']!, pdfPath),
-            );
-          },
+                  return _KalenderCard(
+                    tahun: d['tahun']!,
+                    onTapPdf: () =>
+                        _handlePdfTap(context, d['tahun']!, pdfPath),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -124,7 +120,7 @@ class _KalenderCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(18),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.04),
+            color: Colors.black.withOpacity(0.04),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
