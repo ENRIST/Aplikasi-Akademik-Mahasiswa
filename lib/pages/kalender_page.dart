@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
-
 class KalenderPage extends StatelessWidget {
   const KalenderPage({super.key});
 
-  static const Color _primaryBlue = Color(0xFF4285F4);
+  static const Color _primaryBlue = Color(0xFF2196F3);
   static const Color _iconBg = Color(0xFFE8EEFC);
   static const Color _bgPage = Color(0xFFF1F3F9);
   static const Color _green = Color(0xFF22C55E);
@@ -24,9 +23,9 @@ class KalenderPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: _bgPage,
-      body: SafeArea(
+    return Material(
+      color: _bgPage,
+      child: SafeArea(
         top: false,
         bottom: false,
         child: Column(
@@ -81,24 +80,17 @@ class KalenderPage extends StatelessWidget {
   Widget _buildHeader() {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(20, 18, 20, 26),
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [Color(0xFF4A8BF5), Color(0xFF3B72E8)],
-        ),
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(28),
-          bottomRight: Radius.circular(28),
-        ),
-      ),
-      child: const Text(
-        'Kalender Akademik',
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 22,
-          fontWeight: FontWeight.w600,
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+      color: _primaryBlue,
+      child: const Align(
+        alignment: Alignment.centerLeft,
+        child: Text(
+          'Kalender Akademik',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.w400,
+          ),
         ),
       ),
     );

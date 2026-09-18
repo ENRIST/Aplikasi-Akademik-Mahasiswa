@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../routes.dart';
 
 class LoginPage extends StatelessWidget {
@@ -92,7 +93,7 @@ class LoginPage extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, AppRoutes.ForgotPassword);
+                        Navigator.pushNamed(context, AppRoutes.forgotPassword);
                       },
                       child: const Text("Lupa Password?"),
                     ),
