@@ -93,7 +93,10 @@ class LoginPage extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, AppRoutes.forgotPassword);
+                        Navigator.pushReplacementNamed(
+                          context,
+                          AppRoutes.forgotPassword,
+                        );
                       },
                       child: const Text("Lupa Password?"),
                     ),

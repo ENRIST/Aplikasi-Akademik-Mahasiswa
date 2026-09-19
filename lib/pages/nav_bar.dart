@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 // PASTIKAN KEDUA IMPORT INI ADA DAN NAMANYA SESUAI DENGAN FILE KAMU, KALO MAU NAMBAH PAGES FILENYA TARO BAGIAN INI YA REK
-import 'status_mahasiswa.dart';
 import 'biodata_mahasiswa.dart';
 import 'kalender_page.dart';
 import 'home_page.dart';
@@ -19,7 +18,6 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> _pages = [
     const Center(child: Text('Halaman Pesan (Belum Ada)')),
     HomePage(),
-    StatusMahasiswaPage(),
     KalenderPage(),
     BiodataMahasiswaPage(),
   ];
