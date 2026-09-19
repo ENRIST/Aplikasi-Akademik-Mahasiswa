@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../routes.dart';
 
 class StatusMahasiswaPage extends StatefulWidget {
@@ -10,11 +11,36 @@ class StatusMahasiswaPage extends StatefulWidget {
 
 class _StatusMahasiswaPageState extends State<StatusMahasiswaPage> {
   final List<Map<String, String>> riwayatList = [
-    {'semester': '2024/2025 Gasal', 'ukt': 'Rp 6.540.000', 'pembayaran': 'Sudah Bayar', 'status': 'Aktif'},
-    {'semester': '2024/2025 Genap', 'ukt': 'Rp 6.540.000', 'pembayaran': 'Sudah Bayar', 'status': 'Aktif'},
-    {'semester': '2025/2026 Gasal', 'ukt': 'Rp 6.540.000', 'pembayaran': 'Sudah Bayar', 'status': 'Aktif'},
-    {'semester': '2025/2026 Genap', 'ukt': 'Rp 6.540.000', 'pembayaran': 'Sudah Bayar', 'status': 'Aktif'},
-    {'semester': '2026/2027 Gasal', 'ukt': 'Rp 6.540.000', 'pembayaran': 'Sudah Bayar', 'status': 'Aktif'},
+    {
+      'semester': '2024/2025 Gasal',
+      'ukt': 'Rp 6.540.000',
+      'pembayaran': 'Sudah Bayar',
+      'status': 'Aktif',
+    },
+    {
+      'semester': '2024/2025 Genap',
+      'ukt': 'Rp 6.540.000',
+      'pembayaran': 'Sudah Bayar',
+      'status': 'Aktif',
+    },
+    {
+      'semester': '2025/2026 Gasal',
+      'ukt': 'Rp 6.540.000',
+      'pembayaran': 'Sudah Bayar',
+      'status': 'Aktif',
+    },
+    {
+      'semester': '2025/2026 Genap',
+      'ukt': 'Rp 6.540.000',
+      'pembayaran': 'Sudah Bayar',
+      'status': 'Aktif',
+    },
+    {
+      'semester': '2026/2027 Gasal',
+      'ukt': 'Rp 6.540.000',
+      'pembayaran': 'Sudah Bayar',
+      'status': 'Aktif',
+    },
   ];
 
   @override
@@ -26,16 +52,16 @@ class _StatusMahasiswaPageState extends State<StatusMahasiswaPage> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            // const-nya dihapus di sini
-            Navigator.pushReplacementNamed(
-              context,
-              AppRoutes.biodataMahasiswa,
-            );
+            Navigator.pop(context); // Kembali ke HomePage/MainPage
           },
         ),
         title: const Text(
           'Riwayat Status Mahasiswa',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w400, fontSize: 18),
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w400,
+            fontSize: 18,
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -58,7 +84,11 @@ class _StatusMahasiswaPageState extends State<StatusMahasiswaPage> {
                         width: 65,
                         height: 75,
                         color: Colors.red,
-                        child: const Icon(Icons.person, size: 50, color: Colors.white),
+                        child: const Icon(
+                          Icons.person,
+                          size: 50,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                     const SizedBox(width: 14),
@@ -68,12 +98,22 @@ class _StatusMahasiswaPageState extends State<StatusMahasiswaPage> {
                         children: [
                           Text(
                             'FEBBY AULIA DIVA IRDANI',
-                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: Colors.black87),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 13,
+                              color: Colors.black87,
+                            ),
                           ),
                           SizedBox(height: 4),
-                          Text('24051214157', style: TextStyle(color: Colors.grey, fontSize: 12)),
+                          Text(
+                            '24051214157',
+                            style: TextStyle(color: Colors.grey, fontSize: 12),
+                          ),
                           SizedBox(height: 2),
-                          Text('S1 Sistem Informasi', style: TextStyle(color: Colors.grey, fontSize: 12)),
+                          Text(
+                            'S1 Sistem Informasi',
+                            style: TextStyle(color: Colors.grey, fontSize: 12),
+                          ),
                         ],
                       ),
                     ),
@@ -91,7 +131,9 @@ class _StatusMahasiswaPageState extends State<StatusMahasiswaPage> {
                 final item = riwayatList[index];
                 return Card(
                   margin: const EdgeInsets.only(bottom: 12),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14),
+                  ),
                   elevation: 0,
                   color: const Color(0xFFF9FAFC),
                   child: Padding(
@@ -111,17 +153,32 @@ class _StatusMahasiswaPageState extends State<StatusMahasiswaPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('Nominal UKT ${item['ukt']}', style: const TextStyle(fontSize: 12, color: Colors.black87)),
+                            Text(
+                              'Nominal UKT ${item['ukt']}',
+                              style: const TextStyle(
+                                fontSize: 12,
+                                color: Colors.black87,
+                              ),
+                            ),
                             Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 3,
+                              ),
                               decoration: BoxDecoration(
                                 color: const Color(0xFFE8F5E9),
                                 borderRadius: BorderRadius.circular(10),
-                                border: Border.all(color: const Color(0xFFA5D6A7)),
+                                border: Border.all(
+                                  color: const Color(0xFFA5D6A7),
+                                ),
                               ),
                               child: Text(
                                 item['pembayaran']!,
-                                style: const TextStyle(color: Color(0xFF4CAF50), fontSize: 10, fontWeight: FontWeight.w500),
+                                style: const TextStyle(
+                                  color: Color(0xFF4CAF50),
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ),
                           ],
@@ -130,17 +187,32 @@ class _StatusMahasiswaPageState extends State<StatusMahasiswaPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text('Status Semester', style: TextStyle(fontSize: 12, color: Colors.black87)),
+                            const Text(
+                              'Status Semester',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.black87,
+                              ),
+                            ),
                             Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 3,
+                              ),
                               decoration: BoxDecoration(
                                 color: const Color(0xFFE8F5E9),
                                 borderRadius: BorderRadius.circular(10),
-                                border: Border.all(color: const Color(0xFFA5D6A7)),
+                                border: Border.all(
+                                  color: const Color(0xFFA5D6A7),
+                                ),
                               ),
                               child: Text(
                                 item['status']!,
-                                style: const TextStyle(color: Color(0xFF4CAF50), fontSize: 10, fontWeight: FontWeight.w500),
+                                style: const TextStyle(
+                                  color: Color(0xFF4CAF50),
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ),
                           ],

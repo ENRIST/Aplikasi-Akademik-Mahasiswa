@@ -7,12 +7,24 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // List menu beserta ikon ilustrasi
+    // List menu beserta ikon ilustrasi dan route tujuan
     final List<Map<String, dynamic>> menuList = [
-      {'title': 'Status', 'icon': Icons.account_circle_outlined},
-      {'title': 'KRS', 'icon': Icons.assignment_outlined},
-      {'title': 'KHS', 'icon': Icons.grade_outlined},
-      {'title': 'Jadwal', 'icon': Icons.calendar_today_outlined},
+      {
+        'title': 'Status',
+        'icon': Icons.account_circle_outlined,
+        'route': AppRoutes.statusMahasiswa,
+      },
+      {
+        'title': 'KRS',
+        'icon': Icons.assignment_outlined,
+        'route': AppRoutes.krs, // <-- 1. Tambahkan route KRS di sini
+      },
+      {'title': 'KHS', 'icon': Icons.grade_outlined, 'route': AppRoutes.khs},
+      {
+        'title': 'Jadwal',
+        'icon': Icons.calendar_today_outlined,
+        'route': AppRoutes.jadwal,
+      },
       {'title': 'Transkrip', 'icon': Icons.description_outlined},
       {
         'title': 'Kalender Akademik',
@@ -107,36 +119,45 @@ class HomePage extends StatelessWidget {
                   ),
                   itemCount: menuList.length,
                   itemBuilder: (context, index) {
-                    return Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: 50,
-                          height: 50,
-                          child: Container(
-                            decoration: const BoxDecoration(
-                              color: Color(0xFFE0E0E0),
-                              shape: BoxShape.circle,
-                            ),
-                            child: Icon(
-                              menuList[index]['icon'],
-                              color: const Color(0xFF1565C0),
-                              size: 26,
+                    final item = menuList[index];
+                    return GestureDetector(
+                      onTap: () {
+                        // 2. Navigasi ke halaman tujuan jika route diset
+                        if (item['route'] != null) {
+                          Navigator.pushNamed(context, item['route']);
+                        }
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: 50,
+                            height: 50,
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                color: Color(0xFFE0E0E0),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(
+                                item['icon'],
+                                color: const Color(0xFF1565C0),
+                                size: 26,
+                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(height: 6),
-                        Text(
-                          menuList[index]['title'],
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 10,
+                          const SizedBox(height: 6),
+                          Text(
+                            item['title'],
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 10,
+                            ),
+                            textAlign: TextAlign.center,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                           ),
-                          textAlign: TextAlign.center,
-                          maxLines: 1, // Bolehkan 2 baris agar teks panjang turun ke bawah
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
+                        ],
+                      ),
                     );
                   },
                 ),
