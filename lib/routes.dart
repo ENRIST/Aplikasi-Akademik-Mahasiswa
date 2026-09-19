@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'pages/login_page.dart';
-import 'pages/home_page.dart';
 import 'pages/kalender_page.dart';
 import 'pages/forgot_password_page.dart';
 import 'pages/status_mahasiswa.dart';
@@ -20,7 +19,7 @@ class AppRoutes {
   static Map<String, WidgetBuilder> get routes => {
     login: (context) => const LoginPage(),
     forgotPassword: (context) => const ForgotPasswordPage(),
-    home: (context) => const HomePage(),
+    home: (context) => const MainPage(),
     kalender: (context) => const KalenderPage(),
     statusMahasiswa: (context) => const StatusMahasiswaPage(),
     biodataMahasiswa: (context) => const BiodataMahasiswaPage(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../routes.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,7 +14,11 @@ class HomePage extends StatelessWidget {
       {'title': 'KHS', 'icon': Icons.grade_outlined},
       {'title': 'Jadwal', 'icon': Icons.calendar_today_outlined},
       {'title': 'Transkrip', 'icon': Icons.description_outlined},
-      {'title': 'Kalender Akademik', 'icon': Icons.calendar_month_outlined, 'route': AppRoutes.kalender},
+      {
+        'title': 'Kalender Akademik',
+        'icon': Icons.calendar_month_outlined,
+        'route': AppRoutes.kalender,
+      },
       {'title': 'Perpustakaan', 'icon': Icons.local_library_outlined},
       {'title': 'Aktivitas', 'icon': Icons.apartment_outlined},
     ];

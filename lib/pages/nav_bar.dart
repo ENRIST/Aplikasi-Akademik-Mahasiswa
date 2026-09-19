@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'status_mahasiswa.dart';
 import 'biodata_mahasiswa.dart';
 import 'kalender_page.dart';
+import 'home_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -13,10 +14,11 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int _selectedIndex = 3;
+  int _selectedIndex = 1;
 
   final List<Widget> _pages = [
     const Center(child: Text('Halaman Pesan (Belum Ada)')),
+    HomePage(),
     StatusMahasiswaPage(),
     KalenderPage(),
     BiodataMahasiswaPage(),
