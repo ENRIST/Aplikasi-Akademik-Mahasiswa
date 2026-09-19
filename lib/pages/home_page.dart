@@ -7,7 +7,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // List menu beserta ikon ilustrasi dan route tujuan
     final List<Map<String, dynamic>> menuList = [
       {
         'title': 'Status',
@@ -17,7 +16,7 @@ class HomePage extends StatelessWidget {
       {
         'title': 'KRS',
         'icon': Icons.assignment_outlined,
-        'route': AppRoutes.krs, // <-- 1. Tambahkan route KRS di sini
+        'route': AppRoutes.krs, 
       },
       {'title': 'KHS', 'icon': Icons.grade_outlined, 'route': AppRoutes.khs},
       {
@@ -79,7 +78,7 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              // --- SECTION BANNER (DI ATAS MENU BULATAN) ---
+              
               Container(
                 width: double.infinity,
                 height: 120, // Tinggi banner
@@ -101,7 +100,7 @@ class HomePage extends StatelessWidget {
 
               const SizedBox(height: 16),
 
-              // --- SECTION MENU BULATAN ---
+              
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
@@ -115,14 +114,14 @@ class HomePage extends StatelessWidget {
                     crossAxisCount: 4,
                     mainAxisSpacing: 12,
                     crossAxisSpacing: 8,
-                    childAspectRatio: 1, // Rasio agar teks 2 baris muat rapi
+                    childAspectRatio: 1, 
                   ),
                   itemCount: menuList.length,
                   itemBuilder: (context, index) {
                     final item = menuList[index];
                     return GestureDetector(
                       onTap: () {
-                        // 2. Navigasi ke halaman tujuan jika route diset
+                        
                         if (item['route'] != null) {
                           Navigator.pushNamed(context, item['route']);
                         }
@@ -165,7 +164,7 @@ class HomePage extends StatelessWidget {
 
               const SizedBox(height: 16),
 
-              // --- SECTION JADWAL KULIAH ---
+             
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(16),
@@ -186,7 +185,7 @@ class HomePage extends StatelessWidget {
                     ),
                     const SizedBox(height: 12),
 
-                    // Kotak Putih Isi Jadwal
+                   
                     Container(
                       width: double.infinity,
                       padding: const EdgeInsets.all(16),
