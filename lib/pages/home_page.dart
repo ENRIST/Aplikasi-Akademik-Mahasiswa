@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'nav_bar.dart';
 import '../routes.dart';
 
 class HomePage extends StatelessWidget {
@@ -16,7 +17,7 @@ class HomePage extends StatelessWidget {
       {
         'title': 'KRS',
         'icon': Icons.assignment_outlined,
-        'route': AppRoutes.krs, 
+        'route': AppRoutes.krs,
       },
       {'title': 'KHS', 'icon': Icons.grade_outlined, 'route': AppRoutes.khs},
       {
@@ -28,7 +29,7 @@ class HomePage extends StatelessWidget {
       {
         'title': 'Kalender Akademik',
         'icon': Icons.calendar_month_outlined,
-        'route': AppRoutes.kalender,
+        'route': null,
       },
       {'title': 'Perpustakaan', 'icon': Icons.local_library_outlined},
       {'title': 'Aktivitas', 'icon': Icons.apartment_outlined},
@@ -78,7 +79,6 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              
               Container(
                 width: double.infinity,
                 height: 120, // Tinggi banner
@@ -100,7 +100,6 @@ class HomePage extends StatelessWidget {
 
               const SizedBox(height: 16),
 
-              
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
@@ -114,14 +113,23 @@ class HomePage extends StatelessWidget {
                     crossAxisCount: 4,
                     mainAxisSpacing: 12,
                     crossAxisSpacing: 8,
-                    childAspectRatio: 1, 
+                    childAspectRatio: 1,
                   ),
                   itemCount: menuList.length,
                   itemBuilder: (context, index) {
                     final item = menuList[index];
                     return GestureDetector(
                       onTap: () {
-                        
+                        if (item['title'] == 'Kalender Akademik') {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const MainPage(initialIndex: 2),
+                            ),
+                          );
+                          return;
+                        }
+
                         if (item['route'] != null) {
                           Navigator.pushNamed(context, item['route']);
                         }
@@ -164,7 +172,6 @@ class HomePage extends StatelessWidget {
 
               const SizedBox(height: 16),
 
-             
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(16),
@@ -185,7 +192,6 @@ class HomePage extends StatelessWidget {
                     ),
                     const SizedBox(height: 12),
 
-                   
                     Container(
                       width: double.infinity,
                       padding: const EdgeInsets.all(16),
