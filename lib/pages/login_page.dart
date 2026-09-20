@@ -93,7 +93,7 @@ class LoginPage extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: () {
-                        Navigator.pushReplacementNamed(
+                        Navigator.pushNamed(
                           context,
                           AppRoutes.forgotPassword,
                         );

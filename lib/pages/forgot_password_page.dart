@@ -74,7 +74,7 @@ class ForgotPasswordPage extends StatelessWidget {
                     height: 52,
                     child: ElevatedButton(
                       onPressed: () {
-                        // TODO: kirim email reset password
+                        Navigator.pop(context);
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blueAccent,
