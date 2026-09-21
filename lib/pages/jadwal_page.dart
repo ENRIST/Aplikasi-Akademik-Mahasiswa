@@ -39,9 +39,7 @@ class JadwalPage extends StatelessWidget {
                       size: 30,
                     ),
                   ),
-
                   SizedBox(width: 14),
-
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -89,6 +87,10 @@ class JadwalPage extends StatelessWidget {
               'Dosen Pengampu',
               'Ruang 01',
               '3 SKS',
+              2,
+              0,
+              0,
+              0,
             ),
 
             _buildJadwalCard(
@@ -97,6 +99,10 @@ class JadwalPage extends StatelessWidget {
               'Dosen Pengampu',
               'Ruang 02',
               '3 SKS',
+              3,
+              1,
+              0,
+              0,
             ),
 
             const SizedBox(height: 10),
@@ -119,6 +125,10 @@ class JadwalPage extends StatelessWidget {
               'Dosen Pengampu',
               'Ruang 03',
               '3 SKS',
+              2,
+              0,
+              1,
+              0,
             ),
 
             _buildJadwalCard(
@@ -127,6 +137,10 @@ class JadwalPage extends StatelessWidget {
               'Dosen Pengampu',
               'Ruang 04',
               '3 SKS',
+              3,
+              0,
+              0,
+              1,
             ),
 
             const SizedBox(height: 10),
@@ -149,6 +163,10 @@ class JadwalPage extends StatelessWidget {
               'Dosen Pengampu',
               'Laboratorium Komputer',
               '3 SKS',
+              4,
+              0,
+              0,
+              0,
             ),
 
             const SizedBox(height: 10),
@@ -171,6 +189,10 @@ class JadwalPage extends StatelessWidget {
               'Dosen Pengampu',
               'Ruang 05',
               '3 SKS',
+              3,
+              0,
+              0,
+              0,
             ),
 
             _buildJadwalCard(
@@ -179,6 +201,10 @@ class JadwalPage extends StatelessWidget {
               'Dosen Pengampu',
               'Laboratorium Komputer',
               '3 SKS',
+              2,
+              0,
+              0,
+              1,
             ),
 
             const SizedBox(height: 10),
@@ -201,6 +227,10 @@ class JadwalPage extends StatelessWidget {
               'Dosen Pengampu',
               'Ruang 06',
               '3 SKS',
+              3,
+              0,
+              0,
+              0,
             ),
 
             const SizedBox(height: 20),
@@ -216,6 +246,10 @@ class JadwalPage extends StatelessWidget {
     String dosen,
     String ruangan,
     String sks,
+    int hadir,
+    int alpha,
+    int sakit,
+    int izin,
   ) {
     return Container(
       width: double.infinity,
@@ -291,6 +325,81 @@ class JadwalPage extends StatelessWidget {
               Text(sks),
             ],
           ),
+
+          const SizedBox(height: 16),
+
+          // Rekap kehadiran
+          const Text(
+            'Rekap Kehadiran',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF1E3A5F),
+            ),
+          ),
+
+          const SizedBox(height: 10),
+
+          Row(
+            children: [
+              Expanded(
+                child: _buildKehadiranItem(
+                  hadir.toString(),
+                  'Hadir',
+                  const Color(0xFF4CAF50),
+                ),
+              ),
+              const SizedBox(width: 6),
+              Expanded(
+                child: _buildKehadiranItem(
+                  alpha.toString(),
+                  'Alpha',
+                  const Color(0xFFE53935),
+                ),
+              ),
+              const SizedBox(width: 6),
+              Expanded(
+                child: _buildKehadiranItem(
+                  sakit.toString(),
+                  'Sakit',
+                  const Color(0xFFFF9800),
+                ),
+              ),
+              const SizedBox(width: 6),
+              Expanded(
+                child: _buildKehadiranItem(
+                  izin.toString(),
+                  'Izin',
+                  const Color(0xFF2196F3),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildKehadiranItem(String jumlah, String status, Color warna) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      decoration: BoxDecoration(
+        color: warna.withValues(alpha: 0.1),
+        border: Border.all(color: warna),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        children: [
+          Text(
+            jumlah,
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: warna,
+            ),
+          ),
+          const SizedBox(height: 3),
+          Text(status, style: TextStyle(fontSize: 11, color: warna)),
         ],
       ),
     );
