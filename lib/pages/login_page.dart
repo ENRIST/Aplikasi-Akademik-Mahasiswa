@@ -108,7 +108,7 @@ class LoginPage extends StatelessWidget {
                     height: 52,
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, AppRoutes.home);
+                        Navigator.pushReplacementNamed(context, AppRoutes.home);
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xFF1565C0),
@@ -148,7 +148,13 @@ class LoginPage extends StatelessWidget {
                   SizedBox(
                     height: 52,
                     child: OutlinedButton.icon(
-                      onPressed: () {},
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text("Fitur login dengan Google belum tersedia."),
+                          ),
+                        );
+                      },
                       icon: const Icon(
                         Icons.g_mobiledata,
                         size: 32,
