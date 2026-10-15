@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../routes.dart';
-
 class StatusMahasiswaPage extends StatefulWidget {
   const StatusMahasiswaPage({super.key});
 
